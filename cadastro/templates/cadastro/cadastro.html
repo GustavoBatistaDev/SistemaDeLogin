@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+
+  <h1 style="padding-left: 20px; padding-top: 20px;">Cadastro</h1>
+  <form method="POST" style="padding-left: 20px; padding-top: 20px;">
+    {% csrf_token %}
+  {% if messages %}
+    {% for message in messages %}
+
+      <div class="{{message.tags}}" role="alert">
+          {{message}}
+      </div>
+
+    {% endfor %}
+  {% endif %}
+    <div class="form-group">
+       <label>Nome</label>
+      <input type="text" name="nome" value="{{request.POST.nome}}" class="form-control" placeholder="Enter email">
+    </div>
+
+    <div class="form-group">
+       <label>Sobrenome</label>
+      <input type="text" name="sobrenome" value="{{request.POST.sobrenome}}" class="form-control" placeholder="Enter email">
+    </div>
+
+    <div class="form-group">
+      <label >Usuário</label>
+      <input type="text" name="usuario" value="{{request.POST.usuario}}" class="form-control" placeholder="Password">
+    </div>
+
+    <div class="form-group">
+      <label >Email</label>
+      <input type="email" name="email" value="{{request.POST.email}}" class="form-control" placeholder="Email">
+    </div>
+
+    <div class="form-group">
+      <label>Senha</label>
+      <input type="password" name="senha"  class="form-control" placeholder="Password">
+    </div>
+
+    <div class="form-group">
+      <label>Repetir senha</label>
+      <input type="password" name="senha2" class="form-control" placeholder="Password">
+    </div>
+
+
+   <button style="margin-bottom: 20px;" type="submit" class="btn btn-primary">Cadastrar</button>
+  </form>
+  <form action="{% url 'login' %}">
+    <button style="margin-left: 120px; margin-top: -107px" type="submit" class="btn btn-primary">Login</button>
+  </form>
+{% endblock %}

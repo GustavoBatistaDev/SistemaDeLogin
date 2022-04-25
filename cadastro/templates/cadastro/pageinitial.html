@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+     <h1 style="padding-top: 20px; padding-left: 20px; ">Seja Bem-vindo(a), {{user}}!</h1>
+
+<form action="{% url 'logout' %}">
+     <button style="margin-bottom: 20px; margin-left: 20px; " type="submit" class="btn btn-primary">Logout</button>
+</form>
+{% endblock %}
